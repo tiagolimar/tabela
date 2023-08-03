@@ -4,7 +4,7 @@ function App() {
 
   return (
     <>
-      <Table url='https://jsonplaceholder.typicode.com/posts' />
+      <Table url='https://jsonplaceholder.typicode.com/users' />
     </>
   )
 }
