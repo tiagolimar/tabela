@@ -7,13 +7,9 @@ export const Table = (props) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const response = await fetch(props.url);
-        const users = await response.json();
-        setData(users);
-      } catch (error) {
-        console.error("Error fetching data: ", error);
-      }
+      const response = await fetch(props.url);
+      const users = await response.json();
+      setData(users);
     };
     fetchData();
   }, [props.url]);
@@ -22,11 +18,11 @@ export const Table = (props) => {
     data.length > 0 ? (
       <div className="container">
         <h1>Lista de Usuários</h1>
-        <table className="table table-striped">
+        <table className="table table-striped border">
           <Thead data={data} />
           <Tbody data={data} />
         </table>
       </div>
-      ): null
+    ): null
   )
 };
