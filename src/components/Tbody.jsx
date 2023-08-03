@@ -1,7 +1,7 @@
 const objToString = (obj) => {
   let toString = "";
   for (const k of Object.keys(obj)) {
-    if (typeof obj[k] == "string") {
+    if (typeof obj[k] == "string" || typeof obj[k] == "number") {
       toString += ", " + obj[k];
     } else {
       toString += ", " + objToString(obj[k]);
@@ -12,7 +12,8 @@ const objToString = (obj) => {
 
 export const Tbody = (props) => {
   let body_table = props.data.map((obj, item1) => {
-    return ( objToString(obj).toLowerCase().includes(props.filter.toLowerCase()) ?
+    let finded = objToString(obj).toLowerCase().includes(props.filter.toLowerCase())
+    return ( finded ?
       (<tr key={item1}>
         {Object.keys(obj).map((k, item) => {
           const isString = typeof obj[k] == "string";
