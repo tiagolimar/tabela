@@ -7,7 +7,7 @@ const objToString = (obj) => {
       toString += ", " + objToString(obj[k]);
     }
   }
-  return toString.replace(", ", "");
+  return toString.replace(", ", "").replaceAll("\n", " ");
 };
 
 export const Tbody = (props) => {
