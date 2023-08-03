@@ -12,8 +12,8 @@ const objToString = (obj) => {
 
 export const Tbody = (props) => {
   let body_table = props.data.map((obj, item1) => {
-    return (
-      <tr key={item1}>
+    return ( objToString(obj).toLowerCase().includes(props.filter.toLowerCase()) ?
+      (<tr key={item1}>
         {Object.keys(obj).map((k, item) => {
           const isString = typeof obj[k] == "string";
           const isNumber = typeof obj[k] == "number";
@@ -23,7 +23,7 @@ export const Tbody = (props) => {
             <td key={item}>{objToString(obj[k])}</td>
           ));
         })}
-      </tr>
+      </tr>):null
     );
   });
   return <tbody>{body_table}</tbody>;
